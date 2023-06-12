@@ -1,0 +1,21 @@
+﻿<h1>
+    <a href="/Portfolio/Home">Home</a>|
+    <a href="/Portfolio/Profile">Profile</a>|
+    <a href="/Portfolio/Educaion">Educaion</a>|
+    <a href="/Portfolio/projects">Projects</a>|
+    <a href="/Portfolio/references">References</a>
+</h1>
+<h1>Education</h1>
+<h2>
+    <ul>
+        @foreach (IntroMVC.Models.educationModel i in Model)
+        {
+            <li>@i.curriculum</li>
+            <ul>
+                <li>@i.institute</li>
+                <li>@i.year</li>
+            </ul>
+        }
+    </ul>
+
+</h2>

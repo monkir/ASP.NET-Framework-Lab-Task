@@ -1,0 +1,26 @@
+﻿<h1>
+    <a href="/Portfolio/Home">Home</a>|
+    <a href="/Portfolio/Profile">Profile</a>|
+    <a href="/Portfolio/Educaion">Educaion</a>|
+    <a href="/Portfolio/projects">Projects</a>|
+    <a href="/Portfolio/references">References</a>
+</h1>
+<h1>Education</h1>
+<h2>
+    <table class="table-bordered">
+        <tr>
+            <th>SL</th>
+            <th>Course</th>
+            <th>Description</th>
+        </tr>
+        @foreach (IntroMVC.Views.Portfolio.projectModel i in Model)
+        {
+            <tr>
+                <td>@i.serial</td>
+                <td>@i.course</td>
+                <td>@i.description</td>
+            </tr>
+        }
+    </table>
+
+</h2>

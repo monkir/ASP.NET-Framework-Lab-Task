@@ -1,0 +1,22 @@
+﻿<h1>
+    <a href="/Portfolio/Home">Home</a>|
+    <a href="/Portfolio/Profile">Profile</a>|
+    <a href="/Portfolio/Educaion">Educaion</a>|
+    <a href="/Portfolio/projects">Projects</a>|
+    <a href="/Portfolio/references">References</a>
+</h1>
+<h2>Name: @Model.name</h2>
+<h2>Name: @Model.dob</h2>
+<h2>Name: @Model.nation</h2>
+<h2>Name: @Model.bloodGroup</h2>
+<h2>Name: @Model.address</h2>
+<h2>Name: @Model.contactNo</h2>
+<h2>
+    <ul>
+        @foreach(string i in Model.hobbies)
+        {
+            <li>@i</li>
+        }
+    </ul>
+    
+</h2>
