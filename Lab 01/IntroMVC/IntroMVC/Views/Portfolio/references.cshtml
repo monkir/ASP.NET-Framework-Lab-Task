@@ -1,21 +1,21 @@
 ﻿<h1>
     <a href="/Portfolio/Home">Home</a>|
     <a href="/Portfolio/Profile">Profile</a>|
-    <a href="/Portfolio/Educaion">Educaion</a>|
+    <a href="/Portfolio/Education">Education</a>|
     <a href="/Portfolio/projects">Projects</a>|
     <a href="/Portfolio/references">References</a>
 </h1>
 <h1>References</h1>
 <h2>
-    <ul>
+    <ol>
         @foreach (IntroMVC.Models.referenceModel i in Model)
         {
+            <li>@i.name</li>
             <ul>
-                <li>@i.name</li>
                 <li>@i.title</li>
                 <li>@i.institute</li>
             </ul>
         }
-    </ul>
+    </ol>
 
 </h2>

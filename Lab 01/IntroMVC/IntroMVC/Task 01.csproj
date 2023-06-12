@@ -173,7 +173,7 @@
     <Content Include="Views\Dashboard\Profile.cshtml" />
     <Content Include="Views\Portfolio\Home.cshtml" />
     <Content Include="Views\Portfolio\Profile.cshtml" />
-    <Content Include="Views\Portfolio\Educaion.cshtml" />
+    <Content Include="Views\Portfolio\Education.cshtml" />
     <Content Include="Views\Portfolio\projects.cshtml" />
     <Content Include="Views\Portfolio\references.cshtml" />
   </ItemGroup>

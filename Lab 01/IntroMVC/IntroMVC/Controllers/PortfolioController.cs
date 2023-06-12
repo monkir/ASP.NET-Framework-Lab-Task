@@ -30,7 +30,7 @@ namespace IntroMVC.Controllers
             s1.hobbies = new string[] { "Playing Cricket", "travelling", "Catcing fish"};
             return View(s1);
         }
-        public ActionResult Educaion()
+        public ActionResult Education()
         {
             educationModel[] ed = new educationModel[3];
             
@@ -74,7 +74,9 @@ namespace IntroMVC.Controllers
             pm[3].course = "ATP-3";
             pm[3].description = "Bus Ticketing System";
 
-            return View(pm);
+            ViewBag.pm= pm;
+
+            return View();
         }
         public ActionResult references()
         {
