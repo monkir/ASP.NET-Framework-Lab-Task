@@ -31,8 +31,8 @@
     {
         if (Model != null && Model.Hobbies != null) {
             string[] strArray = Model.Hobbies;
-            //return Model.Hobbies.Contains(hb);
             return strArray.Contains(hb);
+            //return Model.Hobbies.Contains(hb);
         }
         return false;
     }
@@ -69,8 +69,13 @@
     <input @(checkHobbies("Sports") ? "checked" : "") type="checkbox" name="Hobbies[]" value="Sports" /> Sports
     <input @(checkHobbies("Programming") ? "checked" : "") type="checkbox" name="Hobbies[]" value="Programming" /> Programming
     <br />
+    <span class="text-danger">@Html.ValidationMessage("Hobbies")</span>
+    <br />
+
     DOB:
     <input type="date" value="@(Model !=null ? Model.dob : "")" name="dob" />
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("dob")</span>
     <br />
     <input type="submit" class="btn btn-danger" />
 </form>

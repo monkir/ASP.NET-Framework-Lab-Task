@@ -17,7 +17,9 @@ namespace lab_02_ASP.NET.Models
         public string Gender { get; set; }
         [Required]
         public string Profession { get; set; }
+        [Required]
         public string[] Hobbies { get; set; }
+        [Required]
         public string dob { get; set; }
 
     }
