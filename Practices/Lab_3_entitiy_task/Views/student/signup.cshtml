@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+@{
+    bool checkGender(string gn)
+    {
+        if (Model != null && Model.gender != null
+            && Model.gender.Equals(gn))
+        {
+            return true;
+        }
+        return false;
+    }
+    bool checkProfession(string hb)
+    {
+        if (Model != null && Model.profession != null)
+        {
+            string[] strArray = Model.profession;
+            //return Model.profession.Contains(hb);
+            return strArray.Contains(hb);
+        }
+        return false;
+    }
+    string getDOB()
+    {
+        return (Model != null ? Model.dob.ToString("yyyy-MM-dd") : DateTime.Now.ToString("yyyy-MM-dd"));
+    }
+}
+
+<h2>SignUp</h2>
+
+@Html.ValidationSummary()
+
+<form method="post">
+    <input type="text" name="name" value="@(Model !=null ? Model.name : "")" placeholder="name" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("name")</span>
+    <input type="text" name="username" value="@(Model != null ? Model.username : "")" placeholder="username" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("username")</span>
+    <br />
+    gender: <input type="radio" checked="@checkGender("Male")" name="gender" value="Male" />Male
+    <input type="radio" checked="@checkGender("Female")" name="gender" value="Female" />Female
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("gender")</span>
+    <br />
+    Profession:
+    <input @(checkProfession("Travelling") ? "checked" : "") type="checkbox" name="profession[]" value="Travelling" /> Travelling
+    <input @(checkProfession("Gaming") ? "checked" : "") type="checkbox" name="profession[]" value="Gaming" /> Gaming
+    <input @(checkProfession("Sports") ? "checked" : "") type="checkbox" name="profession[]" value="Sports" /> Sports
+    <input @(checkProfession("Programming") ? "checked" : "") type="checkbox" name="profession[]" value="Programming" /> Programming
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("profession")</span><br />
+
+    <input type="text" name="studentID" value="@(Model !=null ? Model.studentID : "")" placeholder="studentID" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("studentID")</span>
+    <input type="text" name="email" value="@(Model !=null ? Model.email : "")" placeholder="email" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("email")</span><br />
+    DOB:
+    <input type="date" value="@getDOB()" name="dob" /><br />
+    <span class="text-danger">@Html.ValidationMessage("dob")</span>
+    <br />
+    <input type="submit" class="btn btn-danger" />
+</form>

@@ -1,0 +1,81 @@
+﻿<script>
+    const deleteStudent = function (deleteId) {
+        document.getElementById('deleteform').action = '/student/delete/' + deleteId;
+        document.getElementById('deleteText').innerHTML = "Are you sure to delete student id " + deleteId + "?";
+
+    }
+</script>
+<h2>Index</h2>
+<h3><a href="/student/signup">Add Student</a></h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Gender</th>
+        <th>Profession</th>
+        <th>Student ID</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.username</td>
+            <td>@item.gender</td>
+            <td>
+                <ul>
+                    @foreach (var pr in item.profession)
+                    {
+                        <li>
+                            @pr
+                        </li>
+                    }
+                </ul>
+            </td>
+            <td>@item.studentID</td>
+            <td>@item.email</td>
+            <td>@item.dob.ToString("dd-MM-yyyy")</td>
+            <td>
+                <a class="btn btn-warning" href="/student/edit/@item.id">Edit</a>
+                <!-- Button trigger modal -->
+                <button 
+                        type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                        onclick="deleteStudent(@item.id);"
+                >
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="deleteText">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary">Understood</button>*@
+                <form action="#" method="post" id="deleteform">
+                    <input class="btn btn-danger" type="submit" value="Confirm" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //document.getElementById('staticBackdrop').action = '123';
+</script>
