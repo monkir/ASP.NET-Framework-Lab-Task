@@ -441,6 +441,67 @@
 			"response": []
 		},
 		{
+			"name": "News by date or category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/news/22-Jul-23",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"news",
+						"22-Jul-23"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "News by category and date",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true

@@ -50,8 +50,12 @@ namespace news_portal_API_task.Controllers
             var db = new apiContext();
             try
             {
-                var excategory = db.categories.Find(obj.id);
-                db.Entry(excategory).CurrentValues.SetValues(obj);
+                var exCategory = db.categories.Find(obj.id);
+                if (exCategory == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "No category founded with id " + obj.id.ToString() });
+                }
+                db.Entry(exCategory).CurrentValues.SetValues(obj);
                 db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "updated" });
             }
@@ -67,7 +71,12 @@ namespace news_portal_API_task.Controllers
             var db = new apiContext();
             try
             {
-                db.categories.Remove(db.categories.Find(id));
+                var exCategory = db.categories.Find(id);
+                if (exCategory == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "No category founded with id " + id.ToString() });
+                }
+                db.categories.Remove(exCategory);
                 db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "removed" });
             }
@@ -85,7 +94,9 @@ namespace news_portal_API_task.Controllers
             {
                 var result = db.categories.Find(id);
                 if(result== null)
+                {
                     return Request.CreateResponse(HttpStatusCode.OK, new { message = "No category founded with id "+id.ToString()});
+                }
                 return Request.CreateResponse(HttpStatusCode.OK, convert(result));
             }
             catch (Exception ex)

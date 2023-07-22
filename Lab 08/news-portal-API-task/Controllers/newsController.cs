@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Data.Entity.Migrations;
 using System.Xml.Linq;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace news_portal_API_task.Controllers
 {
@@ -52,6 +53,10 @@ namespace news_portal_API_task.Controllers
             try
             {
                 var exNews = db.news.Find(obj.id);
+                if(exNews != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "No news founded with id " + obj.id.ToString() });
+                }
                 db.Entry(exNews).CurrentValues.SetValues(obj);
                 db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "updated" });
@@ -68,7 +73,12 @@ namespace news_portal_API_task.Controllers
             var db = new apiContext();
             try
             {
-                db.news.Remove(db.news.Find(id));
+                var exNews = db.news.Find(id);
+                if (exNews != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "No news founded with id " + id.ToString() });
+                }
+                db.news.Remove(exNews);
                 db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "removed" });
             }
@@ -86,7 +96,9 @@ namespace news_portal_API_task.Controllers
             {
                 var result = db.news.Find(id);
                 if (result == null)
+                {
                     return Request.CreateResponse(HttpStatusCode.OK, new { message = "No news founded with id " + id.ToString() });
+                }
                 return Request.CreateResponse(HttpStatusCode.OK, convert(result));
             }
             catch (Exception ex)
@@ -113,13 +125,18 @@ namespace news_portal_API_task.Controllers
         }
         [HttpGet]
         [Route("api/news/date/{date}")]
-        public HttpResponseMessage getNewsByDate(DateTime date)
+        public HttpResponseMessage getNewsByDate(string date)
         {
+            DateTime dt;
+            if (DateTime.TryParse(date, out dt) == false)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, new {message  = "Date is not in correct format"});
+            }
             var db = new apiContext();
             try
             {
                 List<news> result = (from n in db.news
-                               where n.date.Equals(date)
+                               where n.date.Equals(dt)
                                select n).ToList();
                 return Request.CreateResponse(HttpStatusCode.OK, convert(result));
             }
@@ -127,6 +144,43 @@ namespace news_portal_API_task.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
             }
+        }
+        [HttpGet]
+        //date or category
+        [Route("api/news/{doc}")]
+        public HttpResponseMessage getNewsByDateOrCategory(string doc)
+        {
+            DateTime dt;
+            var db = new apiContext();
+            if (DateTime.TryParse(doc, out dt))
+            {
+                try
+                {
+                    List<news> result = (from n in db.news
+                                   where n.date.Equals(dt)
+                                   select n).ToList();
+                    return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+                }
+                catch(Exception ex)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    List<news> result = (from c in db.categories
+                                         where c.name.Equals(doc)
+                                         select c.newsList).SingleOrDefault();
+                    return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+                }
+                catch (Exception ex)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+                }
+            }
+            
         }
         [HttpGet]
         [Route("api/news/{cname}/{date}")]
