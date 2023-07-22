@@ -15,9 +15,17 @@ namespace news_portal_API_task.Controllers
         [Route("api/category/all")]
         public HttpResponseMessage list()
         {
-            var db = new apiContext();
-            var result = db.categories.ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            try
+            {
+                var db = new apiContext();
+                var result = db.categories.ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
+            
         }
         [HttpPost]
         [Route("api/category/add")]
@@ -44,6 +52,7 @@ namespace news_portal_API_task.Controllers
             {
                 var excategory = db.categories.Find(obj.id);
                 db.Entry(excategory).CurrentValues.SetValues(obj);
+                db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "updated" });
             }
             catch (Exception ex)
@@ -75,6 +84,8 @@ namespace news_portal_API_task.Controllers
             try
             {
                 var result = db.categories.Find(id);
+                if(result== null)
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "No category founded with id "+id.ToString()});
                 return Request.CreateResponse(HttpStatusCode.OK, convert(result));
             }
             catch (Exception ex)
@@ -92,7 +103,8 @@ namespace news_portal_API_task.Controllers
         }
         object convert(List<category> categories)
         {
-            return categories.Select(i => convert(i) as object).ToList();
+            //return categories.Select(i => convert(i) as object).ToList();
+            return (from category in categories select convert(category)).ToList();
         }
     }
 }

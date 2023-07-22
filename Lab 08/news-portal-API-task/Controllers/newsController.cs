@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Data.Entity.Migrations;
+using System.Xml.Linq;
 
 namespace news_portal_API_task.Controllers
 {
@@ -16,9 +17,16 @@ namespace news_portal_API_task.Controllers
         [Route("api/news/all")]
         public HttpResponseMessage list()
         {
-            var db = new apiContext();
-            var result = db.news.ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            try
+            {
+                var db = new apiContext();
+                var result = db.news.ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
         }
         [HttpPost]
         [Route("api/news/add")]
@@ -45,6 +53,7 @@ namespace news_portal_API_task.Controllers
             {
                 var exNews = db.news.Find(obj.id);
                 db.Entry(exNews).CurrentValues.SetValues(obj);
+                db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, new { message = "updated" });
             }
             catch (Exception ex)
@@ -76,9 +85,65 @@ namespace news_portal_API_task.Controllers
             try
             {
                 var result = db.news.Find(id);
+                if (result == null)
+                    return Request.CreateResponse(HttpStatusCode.OK, new { message = "No news founded with id " + id.ToString() });
                 return Request.CreateResponse(HttpStatusCode.OK, convert(result));
             }
             catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/news/category/{cname}")]
+        public HttpResponseMessage getNewsByCategory(string cname)
+        {
+            var db = new apiContext();
+            try
+            {
+                List<news> result = (from c in db.categories
+                               where c.name.Equals(cname)
+                               select c.newsList).SingleOrDefault();
+                return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/news/date/{date}")]
+        public HttpResponseMessage getNewsByDate(DateTime date)
+        {
+            var db = new apiContext();
+            try
+            {
+                List<news> result = (from n in db.news
+                               where n.date.Equals(date)
+                               select n).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/news/{cname}/{date}")]
+        public HttpResponseMessage getNewsByCategoryAndDate(string cname, DateTime date)
+        {
+            var db = new apiContext();
+            try
+            {
+                List<news> nListByCategory = (from c in db.categories
+                                     where c.name.Equals(cname)
+                                     select c.newsList).SingleOrDefault();
+                List<news> result = (from n in nListByCategory
+                                     where n.date.Equals(date)
+                                     select n).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, convert(result));
+            }
+            catch(Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
             }
@@ -96,7 +161,8 @@ namespace news_portal_API_task.Controllers
         }
         object convert(List<news> news)
         {
-            return news.Select(i => convert(i) as object).ToList();
+            //return news.Select(i => convert(i) as object).ToList();
+            return (from obj in news select convert(obj)).ToList();
         }
     }
 }

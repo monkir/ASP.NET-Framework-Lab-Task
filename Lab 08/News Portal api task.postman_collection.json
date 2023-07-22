@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "1c8eb48b-b2e2-40cd-8983-c108e22ae383",
+		"name": "News Portal api task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27181032"
+	},
+	"item": [
+		{
+			"name": "Get all category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/category/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"category",
+						"all"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find a category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/category/find/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"category",
+						"find",
+						"2"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a category",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/category/delete/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"category",
+						"delete",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Education",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/category/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"category",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Category",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Education",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/category/update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"category",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all News",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/news/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"news",
+						"all"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "News by category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/news/category/Politics",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"news",
+						"category",
+						"Politics"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "News by date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/news/date/22-Jul-23",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"news",
+						"date",
+						"22-Jul-23"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "News by category and date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/news/Politics/20-Jul-23",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"news",
+						"Politics",
+						"20-Jul-23"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add News",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "A long rest for bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "22-Jul-23",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "After passing 4 months busy scedule, Bangladesh have no scedule in next 2 months",
+							"type": "text"
+						},
+						{
+							"key": "cid",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/news/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"news",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
