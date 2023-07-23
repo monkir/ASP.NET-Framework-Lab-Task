@@ -1,0 +1,17 @@
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\BLL.dll.config
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\BLL.dll
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\BLL.pdb
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\AutoMapper.dll
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\DAL.dll
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\EntityFramework.dll
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\DAL.pdb
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\DAL.dll.config
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\AutoMapper.xml
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\EntityFramework.xml
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\obj\Debug\BLL.dll
+D:\aiub\0. Github\dotNet-Lab-Task\Practices\BLL\obj\Debug\BLL.pdb
