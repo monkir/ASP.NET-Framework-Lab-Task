@@ -38,7 +38,7 @@ namespace BLL.Services
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<category, categoryDTO>();
+                cfg.CreateMap<categoryDTO, category>();
             });
             var mapper = new Mapper(config);
             var converted = mapper.Map<category>(n);
@@ -49,7 +49,7 @@ namespace BLL.Services
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<category, categoryDTO>();
+                cfg.CreateMap<categoryDTO, category>();
             });
             var mapper = new Mapper(config);
             var converted = mapper.Map<category>(n);

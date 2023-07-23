@@ -35,12 +35,12 @@
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44385/api/category/all",
+					"raw": "https://localhost:44330/api/category/all",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44385",
+					"port": "44330",
 					"path": [
 						"api",
 						"category",
@@ -198,18 +198,18 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Education",
+							"value": "Sports",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44385/api/category/add",
+					"raw": "https://localhost:44330/api/category/add",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44385",
+					"port": "44330",
 					"path": [
 						"api",
 						"category",
@@ -229,23 +229,23 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Education",
+							"value": "Sports",
 							"type": "text"
 						},
 						{
 							"key": "id",
-							"value": "3",
+							"value": "4",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44385/api/category/update",
+					"raw": "https://localhost:44330/api/category/update",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44385",
+					"port": "44330",
 					"path": [
 						"api",
 						"category",
@@ -284,12 +284,12 @@
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44385/api/news/all",
+					"raw": "https://localhost:44330/api/news/all",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44385",
+					"port": "44330",
 					"path": [
 						"api",
 						"news",
@@ -345,17 +345,17 @@
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44385/api/news/category/Politics",
+					"raw": "https://localhost:44330/api/news/category/Education",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44385",
+					"port": "44330",
 					"path": [
 						"api",
 						"news",
 						"category",
-						"Politics"
+						"Education"
 					],
 					"query": [
 						{
@@ -573,6 +573,52 @@
 					"urlencoded": [
 						{
 							"key": "title",
+							"value": "Cricket World Cup 2023",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "24-Jul-23",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Cricket World Cup 2023 will be started in October",
+							"type": "text"
+						},
+						{
+							"key": "cid",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44330/api/news/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44330",
+					"path": [
+						"api",
+						"news",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update News",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
 							"value": "A long rest for bangladesh",
 							"type": "text"
 						},
@@ -588,22 +634,86 @@
 						},
 						{
 							"key": "cid",
-							"value": "3",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "6",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44385/api/news/add",
+					"raw": "https://localhost:44330/api/news/update",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44385",
+					"port": "44330",
 					"path": [
 						"api",
 						"news",
-						"add"
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a news",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "news",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-2023",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44330/api/news/delete/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44330",
+					"path": [
+						"api",
+						"news",
+						"delete",
+						"5"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Sports",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "19-Jul-23",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Bangladesh white washed Afganistan",
+							"disabled": true
+						}
 					]
 				}
 			},
