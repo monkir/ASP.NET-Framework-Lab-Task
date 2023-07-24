@@ -53,7 +53,7 @@ namespace news_portal_API_task.Controllers
             try
             {
                 var exNews = db.news.Find(obj.id);
-                if(exNews != null)
+                if(exNews == null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, new { message = "No news founded with id " + obj.id.ToString() });
                 }
