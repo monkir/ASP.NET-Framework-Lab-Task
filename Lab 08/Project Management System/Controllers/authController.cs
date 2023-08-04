@@ -15,8 +15,15 @@ namespace Project_Management_System.Controllers
         [Route("api/login")]
         public HttpResponseMessage login(loginModel login)
         {
-            var data = authService.login(login.username, login.password);
-            return Request.CreateResponse(HttpStatusCode.OK, data );
+            var tk = authService.login(login.username, login.password);
+            if(tk != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, tk );
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, new { message = "Invalid credential" });
+            }
         }
     }
 }

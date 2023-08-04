@@ -8,28 +8,29 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class tokenRepo :Repo, IRepo<token, int, bool>
+    internal class tokenRepo :Repo, IRepo<token, int, token>
     {
         public List<token> All()
         {
             return db.token.ToList();
         }
-        public bool create(token obj)
+        public token create(token obj)
         {
             db.token.Add(obj);
-            return db.SaveChanges() > 0;
+            db.SaveChanges();
+            return obj;
         }
-        public bool delete(int key)
+        public token delete(int key)
         {
             throw new NotImplementedException();
         }
 
         public token get(int key)
         {
-            throw new NotImplementedException();
+            return db.token.Find(key);
         }
 
-        public bool update(token obj)
+        public token update(token obj)
         {
             throw new NotImplementedException();
         }
