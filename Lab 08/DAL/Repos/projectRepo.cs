@@ -2,6 +2,7 @@
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,17 +24,19 @@ namespace DAL.Repos
 
         public bool delete(int key)
         {
-            throw new NotImplementedException();
+            db.project.Remove(get(key));
+            return db.SaveChanges() > 0;
         }
 
         public project get(int key)
         {
-            throw new NotImplementedException();
+            return db.project.Find(key);
         }
 
         public bool update(project obj)
         {
-            throw new NotImplementedException();
+            db.project.AddOrUpdate(obj);
+            return db.SaveChanges() > 0;
         }
     }
 }

@@ -16,5 +16,11 @@ namespace Project_Management_System.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, projectService.All());
         }
+        [Route("api/project/get/{id}")]
+        [HttpGet]
+        public HttpResponseMessage get(int id)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, projectService.get(id));
+        }
     }
 }

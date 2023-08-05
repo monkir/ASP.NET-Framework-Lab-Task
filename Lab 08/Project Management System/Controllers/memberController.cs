@@ -11,9 +11,9 @@ namespace Project_Management_System.Controllers
 {
     public class memberController : ApiController
     {
-        [Route("api/member/all")]
+        //[Route("api/member/all")]
         [HttpGet]
-        [logged]
+        [memberLogged]
         public HttpResponseMessage all()
         {
             return Request.CreateResponse(HttpStatusCode.OK, memberService.All());

@@ -19,5 +19,12 @@ namespace BLL.Services
             var mapper = config.CreateMapper();
             return mapper.Map<List<projectDTO>>(data);
         }
+        public static projectDTO get(int id)
+        {
+            var data = DataAccessChannel.getProject().get(id);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<project, projectDTO>());
+            var mapper = config.CreateMapper();
+            return mapper.Map<projectDTO>(data);
+        }
     }
 }

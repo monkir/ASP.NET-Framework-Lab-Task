@@ -2,6 +2,7 @@
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,26 +22,29 @@ namespace DAL.Repos
         }
         public List<supervisor> All()
         {
-            throw new NotImplementedException();
+            return db.supervisor.ToList();
         }
         public bool create(supervisor obj)
         {
-            throw new NotImplementedException();
+            db.supervisor.Add(obj);
+            return db.SaveChanges() > 0;
         }
 
         public bool delete(int key)
         {
-            throw new NotImplementedException();
+            db.supervisor.Remove(get(key));
+            return db.SaveChanges() > 0;
         }
 
         public supervisor get(int key)
         {
-            throw new NotImplementedException();
+            return db.supervisor.Find(key);
         }
 
         public bool update(supervisor obj)
         {
-            throw new NotImplementedException();
+            db.supervisor.AddOrUpdate(obj);
+            return db.SaveChanges() > 0;
         }
     }
 }

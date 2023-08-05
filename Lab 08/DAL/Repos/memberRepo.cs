@@ -2,6 +2,7 @@
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,12 +25,14 @@ namespace DAL.Repos
         }
         public bool create(member obj)
         {
-            throw new NotImplementedException();
+            db.member.Add(obj);
+            return db.SaveChanges() > 0;
         }
 
         public bool delete(int key)
         {
-            throw new NotImplementedException();
+            db.member.Remove(get(key));
+            return db.SaveChanges() > 0;
         }
 
         public member get(int key)
@@ -39,7 +42,8 @@ namespace DAL.Repos
 
         public bool update(member obj)
         {
-            throw new NotImplementedException();
+            db.member.AddOrUpdate(obj);
+            return db.SaveChanges() > 0;
         }
     }
 }

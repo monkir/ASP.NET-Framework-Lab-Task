@@ -22,7 +22,8 @@ namespace DAL.Repos
         }
         public token delete(int key)
         {
-            throw new NotImplementedException();
+            db.token.Remove(get(key));
+            return null;
         }
 
         public token get(int key)

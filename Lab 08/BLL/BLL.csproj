@@ -45,13 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTOs\enrollmentDTO.cs" />
     <Compile Include="DTOs\memberDTO.cs" />
     <Compile Include="DTOs\projectDTO.cs" />
+    <Compile Include="DTOs\supervisorDTO.cs" />
     <Compile Include="DTOs\tokenDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\authService.cs" />
     <Compile Include="Services\memberService.cs" />
     <Compile Include="Services\projectService.cs" />
+    <Compile Include="Services\supervisorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

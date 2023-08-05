@@ -93,9 +93,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Auth\logged.cs" />
+    <Compile Include="Auth\memberLogged.cs" />
+    <Compile Include="Auth\supervisorLogged.cs" />
     <Compile Include="Controllers\authController.cs" />
     <Compile Include="Controllers\memberController.cs" />
     <Compile Include="Controllers\projectController.cs" />
+    <Compile Include="Controllers\supervisorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

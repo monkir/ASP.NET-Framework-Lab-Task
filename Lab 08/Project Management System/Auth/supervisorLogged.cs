@@ -9,17 +9,16 @@ using System.Web.Http.Filters;
 
 namespace Project_Management_System.Auth
 {
-    public class logged: AuthorizationFilterAttribute
+    public class supervisorLogged: AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            
             var authToken = actionContext.Request.Headers.Authorization;
             if (authToken == null)
             {
                 actionContext.Response = actionContext.Request.CreateResponse(
-                        System.Net.HttpStatusCode.Unauthorized, 
-                        new {Message="No token is supllied in header"}
+                        System.Net.HttpStatusCode.Unauthorized,
+                        new { Message = "No token is supllied in header" }
                     );
             }
             else
@@ -28,14 +27,21 @@ namespace Project_Management_System.Auth
                 if (exToken == null)
                 {
                     actionContext.Response = actionContext.Request.CreateResponse(
-                            System.Net.HttpStatusCode.Unauthorized, 
+                            System.Net.HttpStatusCode.Unauthorized,
                             new { Message = "Supplied token is not valid" }
                         );
                 }
-                else if(exToken.expireTime.CompareTo(DateTime.Now) < 0) 
+                else if (exToken.userrole.Equals("supervisor") == false)
                 {
                     actionContext.Response = actionContext.Request.CreateResponse(
-                            System.Net.HttpStatusCode.Unauthorized, 
+                            System.Net.HttpStatusCode.Unauthorized,
+                            new { Message = "Unauthorized user." }
+                        );
+                }
+                else if (exToken.expireTime.CompareTo(DateTime.Now) < 0)
+                {
+                    actionContext.Response = actionContext.Request.CreateResponse(
+                            System.Net.HttpStatusCode.Unauthorized,
                             new { Message = "Supplied token is expired" }
                         );
                 }
