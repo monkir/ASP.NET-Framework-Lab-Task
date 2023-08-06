@@ -13,3 +13,4 @@ D:\aiub\0. Github\dotNet-Lab-Task\Lab 08\DAL\obj\Debug\DAL.pdb
 D:\aiub\0. Github\dotNet-Lab-Task\Lab 08\DAL\obj\Debug\DAL.Migrations.init.resources
 D:\aiub\0. Github\dotNet-Lab-Task\Lab 08\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 D:\aiub\0. Github\dotNet-Lab-Task\Lab 08\DAL\obj\Debug\DAL.Migrations.token_tabel_created.resources
+D:\aiub\0. Github\dotNet-Lab-Task\Lab 08\DAL\obj\Debug\DAL.Migrations.correctenrollmenttable.resources

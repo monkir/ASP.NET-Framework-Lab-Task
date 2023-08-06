@@ -69,8 +69,13 @@
     <Compile Include="Migrations\202308030804360_token_tabel_created.designer.cs">
       <DependentUpon>202308030804360_token_tabel_created.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202308061844518_correct enrollment table.cs" />
+    <Compile Include="Migrations\202308061844518_correct enrollment table.designer.cs">
+      <DependentUpon>202308061844518_correct enrollment table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\enrollmentRepo.cs" />
     <Compile Include="Repos\loginRepo.cs" />
     <Compile Include="Repos\memberRepo.cs" />
     <Compile Include="Repos\projectRepo.cs" />
@@ -88,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202308030804360_token_tabel_created.resx">
       <DependentUpon>202308030804360_token_tabel_created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308061844518_correct enrollment table.resx">
+      <DependentUpon>202308061844518_correct enrollment table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

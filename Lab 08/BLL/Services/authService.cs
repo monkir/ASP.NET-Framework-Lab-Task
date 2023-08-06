@@ -25,7 +25,7 @@ namespace BLL.Services
                             token_string = tk,
                             userid = memberData.id,
                             userrole = "member",
-                            expireTime = DateTime.Now.AddMinutes(2)
+                            expireTime = DateTime.Now.AddMinutes(20)
                         }
                     );
                 var config = new MapperConfiguration(cfg => cfg.CreateMap<token, tokenDTO>());
@@ -43,7 +43,7 @@ namespace BLL.Services
                             token_string = tk,
                             userid = supervisorData.id,
                             userrole = "supervisor",
-                            expireTime = DateTime.Now.AddMinutes(2)
+                            expireTime = DateTime.Now.AddMinutes(20)
                         }
                     );
                 var config = new MapperConfiguration(cfg => cfg.CreateMap<token, tokenDTO>());

@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "218ef24f-bfd1-4e1b-9fde-c10c1d7a7c62",
+		"name": "Project Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27181032"
+	},
+	"item": [
+		{
+			"name": "News by date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44302/api/news/date/21-Jul-2023",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44302",
+					"path": [
+						"api",
+						"news",
+						"date",
+						"21-Jul-2023"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "e209c9a5-c726-445c-bbea-21dabf1f455c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "super9",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "member all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "0009f4b6-f3e6-4122-97aa-9230ea294cc1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/member/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"member",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "member view open project",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "ee0483c6-3b3e-414b-89ea-fdc157375222",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/member/project/open",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"member",
+						"project",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "member project enrollment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "aca624ca-345c-48d3-bf9e-1a9aa95a1c0a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/member/project/enrollment/25",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"member",
+						"project",
+						"enrollment",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "0009f4b6-f3e6-4122-97aa-9230ea294cc1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/project/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"project",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project get by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "0009f4b6-f3e6-4122-97aa-9230ea294cc1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/project/get/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"project",
+						"get",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supervisor all project",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "c52a6106-4c3b-4e5d-b415-e9c58d80f42e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/supervisor/project/completed",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"supervisor",
+						"project",
+						"completed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supervisor all project Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "c52a6106-4c3b-4e5d-b415-e9c58d80f42e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/supervisor/project/complete/31",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"supervisor",
+						"project",
+						"complete",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supervisor project creation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "cf5ccb78-64e4-48f1-b7ad-2cda590c01f2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Plant Classification",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Needed to be improved",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44333/api/supervisor/project/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"api",
+						"supervisor",
+						"project",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.DTOs;
+using BLL.Services;
 using Project_Management_System.Auth;
 using System;
 using System.Collections.Generic;
@@ -30,5 +31,73 @@ namespace Project_Management_System.Controllers
             var data = supervisorService.myProjects(exToken.userid);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+        [HttpGet]
+        [Route("api/supervisor/project/open")]
+        [supervisorLogged]
+        public HttpResponseMessage myProjectOpened()
+        {
+            var tk = Request.Headers.Authorization.ToString();
+            var exToken = authService.authorizeUser(tk);
+            var data = supervisorService.myProjectsOpened(exToken.userid);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+        [HttpGet]
+        [Route("api/supervisor/project/inprogress")]
+        [supervisorLogged]
+        public HttpResponseMessage myProjectInProgress()
+        {
+            var tk = Request.Headers.Authorization.ToString();
+            var exToken = authService.authorizeUser(tk);
+            var data = supervisorService.myProjectsInProgress(exToken.userid);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+        [HttpGet]
+        [Route("api/supervisor/project/completed")]
+        [supervisorLogged]
+        public HttpResponseMessage myProjectCompleted()
+        {
+            var tk = Request.Headers.Authorization.ToString();
+            var exToken = authService.authorizeUser(tk);
+            var data = supervisorService.myProjectsCompleted(exToken.userid);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+        [HttpPost]
+        [Route("api/supervisor/project/create")]
+        [supervisorLogged]
+        public HttpResponseMessage mypost(projectDTO proObj)
+        {
+            var tk = Request.Headers.Authorization.ToString();
+            var exToken = authService.authorizeUser(tk);
+            proObj.sid = exToken.userid;
+            if (supervisorService.createProject(proObj))
+                return Request.CreateResponse(HttpStatusCode.OK, "Message = created");
+            else
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Message = not created");
+        }
+        [HttpPost]
+        [Route("api/supervisor/project/confirm/{pid}")]
+        [supervisorLogged]
+        public HttpResponseMessage confirmProject(int pid)
+        {
+            var tk = Request.Headers.Authorization.ToString();
+            var exToken = authService.authorizeUser(tk);
+            if (supervisorService.confirmProject(exToken.userid, pid))
+                return Request.CreateResponse(HttpStatusCode.OK, "Message = confrimed");
+            else
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Message = not confirmed");
+        }
+        [HttpPost]
+        [Route("api/supervisor/project/complete/{pid}")]
+        [supervisorLogged]
+        public HttpResponseMessage completeProject(int pid)
+        {
+            var tk = Request.Headers.Authorization.ToString();
+            var exToken = authService.authorizeUser(tk);
+            if (supervisorService.completeProject(exToken.userid, pid))
+                return Request.CreateResponse(HttpStatusCode.OK, "Message = confrimed");
+            else
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Message = not confirmed");
+        }
+
     }
 }
